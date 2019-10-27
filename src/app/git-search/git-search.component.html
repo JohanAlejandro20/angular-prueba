@@ -1,10 +1,10 @@
 <h3>{{displayQuery}}</h3>
 <input name="query" placeholder="Enter search" [(ngModel)]="searchQuery" />
 <button (click)="gitSearchUser()">Submit</button>
-<div *ngIf="searchUserResult; else elseBlock">
+<div *ngIf="searchUserResult && !error; else elseBlock">
     <h3 class="total"> Total-Results : {{searchUserResult.total_count}}</h3>
     <ul class="list">
-        <li [ngStyle]="{'background-color' : (i % 2 === 0) ? 'silver' : 'white'}" class="list_item"
+        <li [ngClass]="['list_item',(i % 2 === 0) ? 'silver' : 'red']"
             *ngFor="let result of searchUserResult.items; index as i">
             <img class="avatar" [src]="result.avatar_url" />
             <h3 class="title"> {{result.name}}
@@ -23,4 +23,8 @@
         </li>
     </ul>
 </div>
-<ng-template #elseBlock>Loading ...</ng-template>
+<ng-template #elseBlock>
+    <h3>
+        hay un error en la consulta vuelva a intentarlo :)
+    </h3>
+</ng-template>
