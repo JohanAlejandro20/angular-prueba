@@ -8,11 +8,13 @@ import { GitSearchComponent } from './git-search/git-search.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GitSearchUserComponent } from './git-search-user/git-search-user.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     GitSearchComponent,
-    GitSearchUserComponent
+    GitSearchUserComponent,
+
   ],
   imports: [
     BrowserModule,

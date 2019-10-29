@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GitSearchService } from '../git-search.service';
 import { GitSearch } from '../git-search';
-import { GitSearchUser } from '../git-search-user';
+
 
 @Component({
   selector: 'app-git-search',
@@ -10,7 +10,6 @@ import { GitSearchUser } from '../git-search-user';
 })
 export class GitSearchComponent implements OnInit {
   searchResults: GitSearch;
-  searchUserResult: GitSearchUser;
   searchQuery: string;
   displayQuery: string;
   error: boolean;
@@ -22,7 +21,7 @@ export class GitSearchComponent implements OnInit {
   ngOnInit() {
    this.searchQuery = 'pedro'
    this.displayQuery = this.searchQuery;
-   this.gitSearchUser();
+   this.gitSearch();
   }
 
   gitSearch =()=>{
@@ -31,19 +30,10 @@ export class GitSearchComponent implements OnInit {
       this.displayQuery= this.searchQuery;
       //alert('Total repositories found: '+response.total_count);
     },(error) => {
-      alert('Error: '+ error.statusText);
+      this.error=true;
+      this.displayQuery= 'Error';
+
     })
   }
 
-  gitSearchUser =()=>{
-    this.GitSearchService.gitSearchUser(this.searchQuery).then((response)=>{
-      console.log(response);
-      this.searchUserResult = response;
-      this.displayQuery= this.searchQuery;
-      //alert('Total repositories found: '+response.total_count);
-    },(error) => {
-           this.error=true;
-           this.displayQuery= 'Error';
-    })
-  }
 }

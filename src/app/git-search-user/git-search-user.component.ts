@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GitSearchService } from '../git-search.service';
 import { GitSearchUser } from '../git-search-user';
 
+
 @Component({
   selector: 'app-git-search-user',
   templateUrl: './git-search-user.component.html',
@@ -22,6 +23,7 @@ export class GitSearchUserComponent implements OnInit {
    this.displayQuery = this.searchQuery;
    this.gitSearchUser();
   }
+
 
   gitSearchUser =()=>{
     this.GitSearchService.gitSearchUser(this.searchQuery).then((response)=>{
