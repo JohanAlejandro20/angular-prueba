@@ -7,6 +7,8 @@ import { GitSearchService } from './git-search.service';
 import { GitSearchComponent } from './git-search/git-search.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GitSearchUserComponent } from './git-search-user/git-search-user.component';
+import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
+import { PaginaNoEncontradaComponent } from './pagina-no-encontrada/pagina-no-encontrada.component';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { GitSearchUserComponent } from './git-search-user/git-search-user.compon
     AppComponent,
     GitSearchComponent,
     GitSearchUserComponent,
+    PaginaInicioComponent,
+    PaginaNoEncontradaComponent,
 
   ],
   imports: [
